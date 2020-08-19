@@ -14,7 +14,7 @@
 *.env
 *.JSON
 *.xml
-
+*.courses/Golang/pkg
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
