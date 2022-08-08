@@ -96,22 +96,18 @@ def dividend_reinvestment(
 
 if __name__ == "__main__":
     res = dividend_reinvestment(  # noqa: E501
-        starting_stocks=1,
-        stock_price=12,
+        starting_stocks=715,
+        stock_price=16.5,
         dividend_payout=0.09,
         payout_frequency=1,
         years=20,
-        regular_additions=25
+        regular_additions=0
     )
 
     if res.run is True:
-        print('a final share count after {} years of {}'.format(
-            res.years, res.final_shares))
-        print('final revenue per month as ${}'.format(
-            round(res.final_revenue, 2)))
-        print("The final value of your portfolio is ${}".format(
-            res.stock_price*res.final_shares
-        ))
-        print("With the value put into your account being ${}".format(res.payout_terms*res.regular_additions))  # noqa
+        print(f'a final share count after {res.years} years of {res.final_shares}')  # noqa: E501
+        print(f'final revenue per month as ${round(res.final_revenue, 2)}')  # noqa: E501
+        print(f"The final value of your portfolio is ${ (res.stock_price*res.final_shares)}")  # noqa: E501
+        print(f"With the value put into your account being ${(res.payout_terms*res.regular_additions)}")  # noqa: E501
     else:
         print('No starting shares, wrong tool')

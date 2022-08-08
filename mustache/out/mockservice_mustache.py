@@ -1,0 +1,2 @@
+
+class SwaggerPetstoreStack(ServiceStack):

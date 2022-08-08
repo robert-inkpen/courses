@@ -42,7 +42,7 @@ def factorial(fact: int) -> int:
 # Given a non empty list of reviews and a set of keywords, return the K most frequent keywords.
 
 # If two words have the same frequency, then the word with the lower alphabetical order comes first.
-# Note: Multiple occurrences of a keyword within the same review only counts as one. 
+# Note: Multiple occurrences of a keyword within the same review only counts as one.
 # Input:
 
 
