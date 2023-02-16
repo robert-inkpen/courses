@@ -32,6 +32,7 @@ class ReinvestResult(NamedTuple):
     payout_terms: int
     stock_price: Money
     regular_additions: int
+    starting_stocks: int
 
 
 # Snowball Effect
@@ -64,7 +65,7 @@ def dividend_reinvestment(
     bank = 0
     new_stocks = 0
     if starting_stocks > 0:
-        print('Stating with {} stocks, costing ${} while adding ${} per period yields:'.format(  # noqa
+        print('Stating with {} stocks, costing ${:0.2f} while adding ${} per period yields:'.format(  # noqa
             starting_stocks, starting_stocks*stock_price, regular_additions))
         run = True
         payout_terms = (12/payout_frequency)*years
@@ -90,24 +91,28 @@ def dividend_reinvestment(
 
     result = ReinvestResult(run, final_shares, final_revenue,
                             years, payout_terms, stock_price,
-                            regular_additions)
+                            regular_additions, starting_stocks)
     return result
 
 
 if __name__ == "__main__":
     res = dividend_reinvestment(  # noqa: E501
-        starting_stocks=715,
-        stock_price=16.5,
+        starting_stocks=54,
+        stock_price=14.77,
         dividend_payout=0.09,
         payout_frequency=1,
-        years=20,
+        years=4,
         regular_additions=0
     )
 
     if res.run is True:
+        res_value = (res.stock_price*res.final_shares)
+        initial_value = res.starting_stocks*res.stock_price
+
         print(f'a final share count after {res.years} years of {res.final_shares}')  # noqa: E501
         print(f'final revenue per month as ${round(res.final_revenue, 2)}')  # noqa: E501
-        print(f"The final value of your portfolio is ${ (res.stock_price*res.final_shares)}")  # noqa: E501
+        print(f"The final value of your portfolio is ${res_value}")  # noqa: E501
         print(f"With the value put into your account being ${(res.payout_terms*res.regular_additions)}")  # noqa: E501
+        print(f"Value added to account {round(res_value-initial_value,2)}")
     else:
         print('No starting shares, wrong tool')
