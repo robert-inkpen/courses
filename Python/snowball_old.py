@@ -73,8 +73,8 @@ def dividend_reinvestment(
 
 
 run, shares, revenue, years, periods, price, additions = dividend_reinvestment(
-    starting_stocks=1,
-    stock_price=12,
+    starting_stocks=0,
+    stock_price=14.77,
     dividend_payout=0.09,
     payout_frequency=1,
     years=20,

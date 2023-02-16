@@ -84,11 +84,11 @@ def percent_difference(second_item: float, first_item: float) -> float:
     return ((second_item - first_item)/first_item)*100
 
 
-for i in range(len(transcations)):
-    if transcations[i]['week'] in spend_by_week:
-        spend_by_week[transcations[i]['week']] += transcations[i]['spend']
+for t in transcations:
+    if t['week'] in spend_by_week:
+        spend_by_week[t['week']] += t['spend']
     else:
-        spend_by_week[transcations[i]['week']] = transcations[i]['spend']
+        spend_by_week[t['week']] = t['spend']
 
 
 diff = percent_difference(spend_by_week[2], spend_by_week[1])
@@ -127,7 +127,7 @@ for key, value in item_spend.items():
 print(highest_spend_item)
 
 
-# %% Q3 -Return the sub-categories with the most sales over 3000.
+# %% Q3 - Return the sub-categories with the most sales over 3000.
 sale_limit = 3000
 category_spend = {}
 
@@ -143,13 +143,57 @@ for trans in transcations:
     else:
         category_spend[item_category] = trans['spend']
 
-highest_spend = 0
-highest_spend_category = ''
+# highest_spend = 0
+# highest_spend_category = ''
 
-for key, value in category_spend.items():
-    if value > highest_spend:
-        highest_spend = value
-        highest_spend_item = key
+
+# def get_category_spend(file):
+#     for key, value in category_spend.items():
+#         if value > highest_spend:
+#             highest_spend = value
+#             highest_spend_item = key
+
 
 print(highest_spend_item)
 # %%
+
+
+
+# %%
+
+n = 5
+# for i in range(n):
+#     print(i)
+print([i*i for i in range(n)])
+
+# %%
+
+# code to determine if year is a leap year
+year = 2020
+if year % 4 == 0:
+    if year % 100 == 0:
+        if year % 400 == 0:
+            print(f'{year} is a leap year')
+        else:
+            print(f'{year} is not a leap year')
+    else:
+        print(f'{year} is a leap year')
+
+           def is_leap(year):
+    if 1900 <= year <= 10**5:
+        if year % 4 == 0:
+            if year % 100 == 0:
+                if year % 400 == 0:
+                    leap = True
+                else:
+                    leap = False
+        return "Year must be between 1900 and 10^5."
+    return leap
+
+    def is_leap(year):
+    leap = False
+
+    if (year %100 == 0) and (year %400 != 0):
+        leap = False
+    elif (year %4 == 0):
+        leap = True
