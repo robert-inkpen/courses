@@ -10,4 +10,5 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/dynamodb v1.4.1
 	github.com/aws/aws-sdk-go-v2/service/sfn v1.4.0
 	github.com/aws/aws-sdk-go-v2/service/sqs v1.4.2
+	golang.org/x/text v0.3.8
 )
